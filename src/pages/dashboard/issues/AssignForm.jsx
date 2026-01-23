@@ -41,8 +41,6 @@ export default function AssignForm({ networkRequest, issueId, show }) {
       }));
   }, [subOrdinates.data, designationValue]);
 
-  console.log("Selected Designation:", designationValue);
-
   const designationOption = useMemo(() => {
     if (!subOrdinates?.data) return [];
 
@@ -53,7 +51,6 @@ export default function AssignForm({ networkRequest, issueId, show }) {
         uniqueDesignations.add(item.designation.toLowerCase());
       }
     });
-    console.log(uniqueDesignations);
 
     return Array.from(uniqueDesignations).map((designation) => ({
       label: designation,

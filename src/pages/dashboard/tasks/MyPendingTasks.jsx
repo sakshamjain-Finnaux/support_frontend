@@ -98,7 +98,6 @@ export default function MyPendingTasks() {
       );
       return row;
     });
-    console.log(data);
 
     return data;
   }, [query.data]);

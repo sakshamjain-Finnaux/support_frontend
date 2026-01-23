@@ -24,7 +24,7 @@ export default function TimelineBox({
     type === "resolved"
       ? "border-green-600 shadow-green-800/40"
       : "border-body-700 shadow-body-800/70";
-  console.log(assignees);
+
   return (
     <div
       className={`text-base space-y-2 border-2 p-4  bg-body-940 rounded-lg shadow-md  ${className}`}>
