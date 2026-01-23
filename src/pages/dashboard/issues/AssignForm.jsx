@@ -111,6 +111,7 @@ export default function AssignForm({ networkRequest, issueId, show }) {
         isLoading={subOrdinates.isLoading}
         control={control}
         name={"assign_to"}
+        isMulti={true}
         options={subOrdinatesOptions}
         title={"Assign To"}
         placeholder={subOrdinates.isLoading ? "Loading..." : "Select..."}

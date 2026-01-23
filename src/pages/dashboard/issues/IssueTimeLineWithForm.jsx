@@ -107,8 +107,18 @@ function RemarkForm({ networkRequest, issueId, fields }) {
       toast.error(error.message);
     },
     onSuccess: (data) => {
+      if (String(data?.message || "").includes("Waiting for other assignees")) {
+        toast.success(data.message);
+        queryClient.invalidateQueries(["issues"]);
+        queryClient.invalidateQueries(["tasks"]);
+        return;
+      }
+
       closeOverlay();
-      let text = `Issue was ${fields.resolve ? "resolved" : "reverted"} successfully!`;
+      let text = "Operation successful!";
+      if (watchStatus === "complete") text = "Task marked completed!";
+      else if (watchStatus === "revert") text = "Task reverted successfully!";
+      else if (watchStatus === "resolve") text = "Issue resolved successfully!";
       toast.success(text);
       queryClient.invalidateQueries(["issues"]);
       queryClient.invalidateQueries(["tasks"]);
