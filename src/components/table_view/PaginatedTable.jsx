@@ -37,7 +37,6 @@ export default function PaginatedTable({
     prepareRow,
     page,
     canPreviousPage,
-    canNextPage,
     gotoPage,
     nextPage,
     previousPage,

@@ -19,6 +19,10 @@ export default function ClientsPendingIssues() {
   const columns = useMemo(
     () => [
       {
+        Header: "S. No.",
+        accessor: (row, index) => index + 1,
+      },
+      {
         Header: "Issue ID",
         accessor: "issue_id",
       },
