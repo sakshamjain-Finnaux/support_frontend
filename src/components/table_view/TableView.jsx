@@ -44,7 +44,6 @@ export default function TableView({
       </div>
     );
   }
-  console.log("yeh naya wala data", data);
   return data?.length ? (
     tableOptions.isPaginated ? (
       <PaginatedTable

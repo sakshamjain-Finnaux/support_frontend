@@ -52,7 +52,8 @@ export default function PaginatedTable({
         pageSize: queryPageSize,
       },
       manualPagination: true,
-      pageCount: -1, //don't know the exact size of data
+      // pageCount: 9999999, // max value tried (works but laggy)
+      pageCount: 999999, //don't know the exact size of data
     },
     useGlobalFilter,
     useSortBy,
