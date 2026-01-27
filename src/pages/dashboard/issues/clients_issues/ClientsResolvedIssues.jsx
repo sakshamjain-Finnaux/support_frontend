@@ -58,9 +58,6 @@ export default function ClientsResolvedIssues() {
   );
 
   async function fetchData(pageIndex, pageSize) {
-    console.log("pageIndex", pageIndex);
-    console.log("pageSize", pageSize);
-
     const result = await networkRequest("clients_resolved_issues", {
       pageIndex,
       pageSize,

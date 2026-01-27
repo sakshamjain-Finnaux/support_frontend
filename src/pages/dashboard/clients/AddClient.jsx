@@ -56,9 +56,9 @@ export default function AddClient({ formData }) {
     }
   }, [watchRegisteredAddress]);
 
-  function onSubmit(data) {
-    console.log(data);
-  }
+  // function onSubmit(data) {
+  //   console.log(data);
+  // }
   return (
     <div className="flex-grow gap-6 flex flex-col">
       <h1 className="text-3xl font-medium text-primary-500 ">Add Client</h1>
