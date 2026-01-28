@@ -178,7 +178,8 @@ function RemarkForm({ networkRequest, issueId, fields }) {
                     revertMutation.isLoading || revertMutation.isSuccess
                   }
                   type="submit"
-                  className="disabled:animate-pulse">
+                  className="disabled:animate-pulse"
+                  variant="dark">
                   Resolve
                 </Button>
               ) : (

@@ -27,7 +27,8 @@ export default function TimelineBox({
 
   return (
     <div
-      className={`text-base space-y-2 border-2 p-4  bg-body-940 rounded-lg shadow-md  ${className}`}>
+      className={`text-base space-y-2 border-2 p-4  bg-body-940 rounded-lg shadow-md  ${className}`}
+    >
       <div className="space-x-8 flex items-center">
         <span className="inline-flex items-center gap-2">
           {icons[type]}
@@ -65,7 +66,8 @@ export default function TimelineBox({
                       : a.status === "reverted"
                         ? "bg-red-600 text-white"
                         : "bg-yellow-600 text-white"
-                  }`}>
+                  }`}
+                >
                   {a.status}
                 </span>
               </li>

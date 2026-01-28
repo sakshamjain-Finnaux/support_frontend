@@ -18,7 +18,7 @@
   margin: -0.5em;
 }
 
-.react-calendar--doubleView .react-calendar__viewContainer>* {
+.react-calendar--doubleView .react-calendar__viewContainer > * {
   width: 50%;
   margin: 0.5em;
 }
@@ -54,7 +54,7 @@
 }
 
 .react-calendar__navigation button:disabled {
-  background-color: theme("colors.body.700");;
+  background-color: theme("colors.body.700");
 }
 
 .react-calendar__navigation button:enabled:hover,

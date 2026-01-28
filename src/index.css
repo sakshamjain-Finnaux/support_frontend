@@ -30,6 +30,28 @@
 
   --error: 220, 38, 38;
   --select-bg: 24, 81, 70;
+
+  /* Shadcn variables for Button component */
+  --background: 250 250 250;
+  --foreground: 10 10 10;
+  --card: 240 240 240;
+  --card-foreground: 10 10 10;
+  --popover: 230 230 230;
+  --popover-foreground: 10 10 10;
+  --primary: 13 148 136;
+  --primary-foreground: 245 245 245;
+  --secondary: 220 220 220;
+  --secondary-foreground: 10 10 10;
+  --muted: 245 245 245;
+  --muted-foreground: 115 115 115;
+  --accent: 210 210 210;
+  --accent-foreground: 10 10 10;
+  --destructive: 220 38 38;
+  --destructive-foreground: 254 242 242;
+  --border: 220 220 220;
+  --input: 220 220 220;
+  --ring: 13 148 136;
+  --radius: 0.625rem;
 }
 
 .dark {
@@ -57,6 +79,27 @@
   --primary-200: 153, 246, 228;
   --primary-100: 204, 251, 241;
   --primary-50: 240, 253, 250;
+
+  /* Shadcn variables for Button component - Dark mode */
+  --background: 15 15 15;
+  --foreground: 245 245 245;
+  --card: 25 25 25;
+  --card-foreground: 245 245 245;
+  --popover: 35 35 35;
+  --popover-foreground: 245 245 245;
+  --primary: 20 184 166;
+  --primary-foreground: 245 245 245;
+  --secondary: 65 65 65;
+  --secondary-foreground: 245 245 245;
+  --muted: 40 40 40;
+  --muted-foreground: 165 165 165;
+  --accent: 45 45 45;
+  --accent-foreground: 245 245 245;
+  --destructive: 220 38 38;
+  --destructive-foreground: 245 245 245;
+  --border: 55 55 55;
+  --input: 55 55 55;
+  --ring: 20 184 166;
 }
 
 @layer base {

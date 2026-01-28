@@ -5,10 +5,10 @@ import CreateIssue from "../CreateIssue";
 import { useData } from "../../../../contexts/DataContext";
 import { RefreshIcon, PlusIcon } from "../../../../assets/Icons/Icons";
 import { useQuery } from "@tanstack/react-query";
-import Button from "../../../../components/ui/button/Button";
 import IssueTimeLineView from "../IssueTimeLineView";
 import ActionMenu from "../../../../components/action_menu/ActionMenu";
 import usePageReducer from "../../../../reducers/PageReducer";
+import Button from "@/components/ui/button/Button";
 
 export default function MyInProgressIssues() {
   const [{ queryPageIndex, queryPageSize }, dispatch] = usePageReducer();
@@ -92,6 +92,7 @@ export default function MyInProgressIssues() {
         <div className="inline-flex gap-4 text-xs ml-auto">
           <Button
             variant="blue"
+            size="sm"
             className="!gap-1"
             onClick={() =>
               showInOverlay(
@@ -103,7 +104,7 @@ export default function MyInProgressIssues() {
             <PlusIcon />
           </Button>
 
-          <Button className="!gap-0" onClick={query.refetch}>
+          <Button size="sm" variant="dark" onClick={query.refetch}>
             Refresh
             <RefreshIcon className="inline ml-1 text-lg" />
           </Button>

@@ -81,7 +81,8 @@ export default function PaginatedTable({
             {headerGroups.map((headerGroup) => (
               <tr
                 className="bg-nav text-body-400 font-bold"
-                {...headerGroup.getHeaderGroupProps()}>
+                {...headerGroup.getHeaderGroupProps()}
+              >
                 {headerGroup.headers.map((column) => {
                   return (
                     <th
@@ -89,7 +90,8 @@ export default function PaginatedTable({
                         column.Header.toLowerCase() === "action" ||
                           column.getSortByToggleProps(),
                       )}
-                      className="p-2 text-xs hover:bg-body-800 font-semibold w-10">
+                      className="p-2 text-xs hover:bg-body-800 font-semibold w-10"
+                    >
                       {column.render("Header")}
                       {column.isSorted ? (
                         <ArrowIcon
@@ -111,12 +113,14 @@ export default function PaginatedTable({
               return (
                 <tr
                   {...row.getRowProps()}
-                  className={`text-center duration-150 hover:bg-body-940 even:bg-body-800 ${row.original.variant == "red" ? "!bg-red-900/20" : ""}`}>
+                  className={`text-center duration-150 hover:bg-body-940 even:bg-body-800 ${row.original.variant == "red" ? "!bg-red-900/20" : ""}`}
+                >
                   {row.cells.map((cell) => {
                     return (
                       <td
                         {...cell.getCellProps()}
-                        className="text-sm first:font-medium border border-b-0 border-r-0 border-body-700 py-2 px-2 relative">
+                        className="text-sm first:font-medium border border-b-0 border-r-0 border-body-700 py-2 px-2 relative"
+                      >
                         {cell.render("Cell")}
                       </td>
                     );
@@ -134,7 +138,8 @@ export default function PaginatedTable({
           value={pageSize}
           onChange={(e) => {
             setPageSize(Number(e.target.value));
-          }}>
+          }}
+        >
           {[10, 20, 30, 40, 50].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
               Show {pageSize}

@@ -27,109 +27,115 @@ import EditEmployee from "./pages/dashboard/employees/EditEmployee";
 //dashboard pages end
 export default function App() {
   const { user, hasPermission } = useAuth();
-  const router = useMemo(() => createBrowserRouter([
-    {
-      path: "/",
-      element: <AppLayout />,
-      errorElement: <NotFound />,
-      children: [
-        {
-          path: "/signin",
-          element: (
-            <ProtectedLayout isAuthorized={!user} redirectTo="/" >
-              <SignIn />
-            </ProtectedLayout>
-          ),
-        },
-
+  const router = useMemo(
+    () =>
+      createBrowserRouter([
         {
           path: "/",
-          element: (
-            <ProtectedLayout isAuthorized={user} redirectTo="/signin">
-              <DashboardProvider>
-                <DashboardLayout />
-              </DashboardProvider>
-            </ProtectedLayout>
-          ),
+          element: <AppLayout />,
+          errorElement: <NotFound />,
           children: [
             {
-              path: "/",
-              element: <Home />,
-            },
-            {
-              path: "/clientissues",
-              element:
-                <ProtectedLayout
-                  isAuthorized={hasPermission(PERMISSIONS.can_access_clients_issues)}
-                  redirectTo="/notfound"
-                >
-                  <ClientsIssues />
-                </ProtectedLayout>
-              ,
-            },
-            {
-              path: "/companyissues",
-              element: <CompanyIssues />,
-            },
-            {
-              path: "/myissues",
-              element: <MyIssues />,
-            },
-            {
-              path: "/mytasks",
-              element: <MyTasks />
-            },
-            {
-              path: "/employees",
+              path: "/signin",
               element: (
-                <ProtectedLayout
-                  isAuthorized={hasPermission(PERMISSIONS.can_access_employees)}
-                  redirectTo="/notfound"
-                />),
+                <ProtectedLayout isAuthorized={!user} redirectTo="/">
+                  <SignIn />
+                </ProtectedLayout>
+              ),
+            },
 
+            {
+              path: "/",
+              element: (
+                <ProtectedLayout isAuthorized={user} redirectTo="/signin">
+                  <DashboardProvider>
+                    <DashboardLayout />
+                  </DashboardProvider>
+                </ProtectedLayout>
+              ),
               children: [
                 {
-                  path: "",
-                  element: <Employees />,
+                  path: "/",
+                  element: <Home />,
                 },
                 {
-                  path: "add",
-                  element: <AddEmployee />,
+                  path: "/clientissues",
+                  element: (
+                    <ProtectedLayout
+                      isAuthorized={hasPermission(
+                        PERMISSIONS.can_access_clients_issues,
+                      )}
+                      redirectTo="/notfound"
+                    >
+                      <ClientsIssues />
+                    </ProtectedLayout>
+                  ),
                 },
                 {
-                  path: "edit/:emp_id",
-                  element: < EditEmployee />
-                }
-              ]
+                  path: "/companyissues",
+                  element: <CompanyIssues />,
+                },
+                {
+                  path: "/myissues",
+                  element: <MyIssues />,
+                },
+                {
+                  path: "/mytasks",
+                  element: <MyTasks />,
+                },
+                {
+                  path: "/employees",
+                  element: (
+                    <ProtectedLayout
+                      isAuthorized={hasPermission(
+                        PERMISSIONS.can_access_employees,
+                      )}
+                      redirectTo="/notfound"
+                    />
+                  ),
+
+                  children: [
+                    {
+                      path: "",
+                      element: <Employees />,
+                    },
+                    {
+                      path: "add",
+                      element: <AddEmployee />,
+                    },
+                    {
+                      path: "edit/:emp_id",
+                      element: <EditEmployee />,
+                    },
+                  ],
+                },
+
+                // {
+                //   path: "/clients",
+                //   element: (
+                //     <ProtectedLayout
+                //       isAuthorized={hasPermission(PERMISSIONS.can_access_clients)}
+                //       redirectTo="/notfound"
+                //     />
+                //   ),
+
+                //   children: [
+                //     {
+                //       path: "",
+                //       element: <Clients />,
+                //     },
+                //     {
+                //       path: "add",
+                //       element: <AddClient />,
+                //     },
+                //   ]
+                // },
+              ],
             },
-
-            // {
-            //   path: "/clients",
-            //   element: (
-            //     <ProtectedLayout
-            //       isAuthorized={hasPermission(PERMISSIONS.can_access_clients)}
-            //       redirectTo="/notfound"
-            //     />
-            //   ),
-
-            //   children: [
-            //     {
-            //       path: "",
-            //       element: <Clients />,
-            //     },
-            //     {
-            //       path: "add",
-            //       element: <AddClient />,
-            //     },
-            //   ]
-            // },
-          ]
+          ],
         },
-      ]
-    }
-  ]), [user]
-  )
-  return (
-    < RouterProvider router={router} />
-  )
+      ]),
+    [user],
+  );
+  return <RouterProvider router={router} />;
 }

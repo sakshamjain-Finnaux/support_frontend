@@ -113,7 +113,11 @@ export default function MyAssignedTasks() {
     <div className="flex flex-grow w-full gap-4 flex-col">
       {!(query.isLoading || query.isRefetching) && (
         <div className="inline-flex gap-4 text-xs ml-auto">
-          <Button className="!gap-0" onClick={query.refetch}>
+          <Button
+            variant="dark"
+            size="sm"
+            className="!gap-0"
+            onClick={query.refetch}>
             Refresh
             <RefreshIcon className="inline ml-1 text-lg" />
           </Button>

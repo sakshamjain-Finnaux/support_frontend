@@ -87,7 +87,9 @@ export default function MyPendingTasks() {
       row = { ...row };
       row["action"] = (
         <ActionMenu>
-          <button
+          <Button
+            variant="dark"
+            className="h-6 px-2 text-xs"
             onClick={() =>
               showInOverlay(
                 <IssueTimeLineWithForm
@@ -97,7 +99,7 @@ export default function MyPendingTasks() {
               )
             }>
             View
-          </button>
+          </Button>
         </ActionMenu>
       );
       return row;
@@ -110,7 +112,11 @@ export default function MyPendingTasks() {
     <div className="flex flex-grow w-full gap-4 flex-col">
       {!(query.isLoading || query.isRefetching) && (
         <div className="inline-flex gap-4 text-xs ml-auto">
-          <Button className="!gap-0" onClick={query.refetch}>
+          <Button
+            size="sm"
+            variant="dark"
+            className="!gap-0"
+            onClick={query.refetch}>
             Refresh
             <RefreshIcon className="inline ml-1 text-lg" />
           </Button>

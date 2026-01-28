@@ -38,7 +38,8 @@ export default function TableView({
         <button
           type="button"
           onClick={refetch}
-          className="underline hover:text-body-500 cursor-pointerz">
+          className="underline hover:text-body-500 cursor-pointerz"
+        >
           Retry
         </button>
       </div>
@@ -64,7 +65,8 @@ export default function TableView({
       <button
         type="button"
         onClick={refetch}
-        className="underline hover:text-body-500 cursor-pointer">
+        className="underline hover:text-body-500 cursor-pointer"
+      >
         Refresh
       </button>
     </div>

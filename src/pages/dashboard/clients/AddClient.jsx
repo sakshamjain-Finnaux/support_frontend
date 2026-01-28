@@ -64,7 +64,8 @@ export default function AddClient({ formData }) {
       <h1 className="text-3xl font-medium text-primary-500 ">Add Client</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-wrap gap-4 bg-body-800 bg-opacity-40 p-4 rounded-lg border-body-700 border justify-between">
+        className="flex flex-wrap gap-4 bg-body-800 bg-opacity-40 p-4 rounded-lg border-body-700 border justify-between"
+      >
         {/* Personal Details */}
         <>
           <h2 className="w-full font-medium text-lg text-primary-600 uppercase underline-offset-4">
@@ -570,7 +571,8 @@ function ProfileField({ control, register, setValue }) {
       <div className="my-auto flex w-full h-[82%] flex-col border-body-700  border-4 border-dotted items-center justify-center overflow-hidden">
         <label
           title="company logo"
-          className="p-1 cursor-pointer h-full flex items-center justify-center">
+          className="p-1 cursor-pointer h-full flex items-center justify-center"
+        >
           <input
             accept="image/*"
             type="file"
@@ -596,7 +598,8 @@ function ProfileField({ control, register, setValue }) {
                 type="button"
                 onClick={() => setValue("company_logo", null)}
                 title="remove image"
-                className="absolute w-4 h-4 text-sm flex items-center justify-center top-0 right-0 bg-red-800 rounded-sm p-2 text-red-200 z-50">
+                className="absolute w-4 h-4 text-sm flex items-center justify-center top-0 right-0 bg-red-800 rounded-sm p-2 text-red-200 z-50"
+              >
                 X
               </button>
             </div>

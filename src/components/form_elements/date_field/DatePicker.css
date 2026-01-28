@@ -36,16 +36,13 @@
   border: 2px solid #14b8a6;
 }
 
-
-.react-date-picker_error>.react-date-picker__wrapper {
+.react-date-picker_error > .react-date-picker__wrapper {
   border-color: theme("colors.red.700");
 }
 
-.react-date-picker_error>.react-date-picker__wrapper:hover {
+.react-date-picker_error > .react-date-picker__wrapper:hover {
   border-color: theme("colors.red.800");
 }
-
-
 
 .react-date-picker__inputGroup {
   min-width: calc((4px * 3) + 0.54em * 8 + 0.217em * 2);

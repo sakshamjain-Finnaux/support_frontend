@@ -120,6 +120,7 @@ export default function MyPendingIssues() {
         <div className="inline-flex gap-4 text-xs ml-auto">
           <Button
             variant="blue"
+            size="sm"
             className="!gap-1"
             onClick={() =>
               showInOverlay(
@@ -131,7 +132,7 @@ export default function MyPendingIssues() {
             <PlusIcon />
           </Button>
 
-          <Button className="!gap-0" onClick={query.refetch}>
+          <Button size="sm" variant="dark" onClick={query.refetch}>
             Refresh
             <RefreshIcon className="inline ml-1 text-lg" />
           </Button>
