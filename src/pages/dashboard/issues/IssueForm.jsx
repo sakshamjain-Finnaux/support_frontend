@@ -66,7 +66,7 @@ export default function IssueForm({ submitMutation, formData, formType }) {
               type="button"
               variant="ghost"
               onClick={closeOverlay}
-              className="h-9 w-9 p-0 rounded-full text-body-300 hover:bg-body-800">
+              className="h-9 w-9 p-0 rounded-full text-red-600 hover:text-white hover:bg-red-500">
               <X className="h-4 w-4" />
             </Button>
           </div>

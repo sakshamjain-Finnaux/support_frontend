@@ -77,6 +77,7 @@ export default function ClientsResolvedIssues() {
       row["action"] = (
         <ActionMenu>
           <button
+            className="text-white"
             onClick={() =>
               showInOverlay(
                 <IssueTimeLineView

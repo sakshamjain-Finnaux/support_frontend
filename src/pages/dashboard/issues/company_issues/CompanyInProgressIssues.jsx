@@ -75,6 +75,7 @@ export default function CompanyInProgressIssues() {
       row["action"] = (
         <ActionMenu>
           <button
+            className="text-white"
             onClick={() =>
               showInOverlay(
                 <IssueTimeLineView

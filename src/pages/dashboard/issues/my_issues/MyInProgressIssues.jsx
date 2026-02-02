@@ -68,6 +68,7 @@ export default function MyInProgressIssues() {
       row["action"] = (
         <ActionMenu>
           <button
+            className="text-white"
             onClick={() =>
               showInOverlay(
                 <IssueTimeLineView

@@ -89,6 +89,7 @@ export default function MyRevertedTasks() {
       row["action"] = (
         <ActionMenu>
           <button
+            className="text-white"
             onClick={() =>
               showInOverlay(
                 <IssueTimeLineWithForm

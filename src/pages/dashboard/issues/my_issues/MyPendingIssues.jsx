@@ -70,6 +70,7 @@ export default function MyPendingIssues() {
       row["action"] = (
         <ActionMenu>
           <button
+            className="text-white"
             onClick={() =>
               showInOverlay(
                 <IssueTimeLineWithForm
@@ -83,6 +84,7 @@ export default function MyPendingIssues() {
           </button>
 
           <button
+            className="text-white"
             onClick={() =>
               showInOverlay(
                 <EditIssue
@@ -101,7 +103,7 @@ export default function MyPendingIssues() {
                 deleteMutation.mutate(row.issue_id),
               )
             }
-            className="text-red-700">
+            className="text-red-600">
             Delete
           </button>
         </ActionMenu>

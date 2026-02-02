@@ -33,8 +33,7 @@ export default function AssignTask({ networkRequest, issueId }) {
       <Tab.Group>
         <Tab.List
           as="div"
-          className="top-0 left-0 z-[1] bg-inherit flex w-full border-body-700 border-b-2 rounded-t-lg overflow-hidden sticky"
-        >
+          className="top-0 left-0 z-[1] bg-inherit flex w-full border-body-700 border-b-2 rounded-t-lg overflow-hidden sticky">
           {tabs.map((tab) => (
             <Tab
               key={tab}
@@ -44,8 +43,7 @@ export default function AssignTask({ networkRequest, issueId }) {
                     ? "bg-body-800 text-primary-500 shadow border-b border-primary-500"
                     : "text-body-300 hover:bg-white/[0.12] hover:text-white"
                 }`
-              }
-            >
+              }>
               {tab}
             </Tab>
           ))}
