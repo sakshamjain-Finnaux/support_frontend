@@ -87,7 +87,8 @@ export default function CompanyAssignedIssues() {
                 />,
                 false,
               )
-            }>
+            }
+          >
             View
           </button>
         </ActionMenu>

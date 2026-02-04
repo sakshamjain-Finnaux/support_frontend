@@ -49,7 +49,8 @@ export default function IssuesPage({ tabs, name, onTabChange }) {
                 const container = document.querySelector(".tab-container");
                 if (container) container.scrollLeft -= 100;
               }}
-              className="h-full px-2 bg-gradient-to-r from-body-50/90 to-transparent dark:from-body-900/90 flex items-center">
+              className="h-full px-2 bg-gradient-to-r from-body-50/90 to-transparent dark:from-body-900/90 flex items-center"
+            >
               <ChevronLeft className="w-4 h-4 text-body-400" />
             </button>
           </div>
@@ -57,7 +58,8 @@ export default function IssuesPage({ tabs, name, onTabChange }) {
           <Tab.List
             as="div"
             className="tab-container flex w-full gap-1 overflow-x-auto scrollbar-hide pb-1 relative"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
             {visibleTabs.map((tab, index) => (
               <Tab
                 key={tab.name}
@@ -69,7 +71,8 @@ export default function IssuesPage({ tabs, name, onTabChange }) {
                       ? "text-primary-500 dark:text-primary-400 border-primary-500 dark:border-primary-400 bg-primary-50/30 dark:bg-primary-900/20"
                       : "text-body-500 dark:text-body-400 border-transparent hover:text-body-700 dark:hover:text-body-300 hover:border-body-300 dark:hover:border-body-600 hover:bg-red-100/50 dark:hover:bg-body-800/50"
                   }
-                `}>
+                `}
+              >
                 <div className="flex items-center gap-2">
                   {tab.icon && (
                     <tab.icon
@@ -86,7 +89,8 @@ export default function IssuesPage({ tabs, name, onTabChange }) {
                           ? "bg-primary-500 dark:bg-primary-400 text-white"
                           : "bg-body-200 dark:bg-body-700 text-body-600 dark:text-body-400"
                       }
-                    `}>
+                    `}
+                    >
                       {tab.count}
                     </span>
                   )}
@@ -105,7 +109,8 @@ export default function IssuesPage({ tabs, name, onTabChange }) {
                 const container = document.querySelector(".tab-container");
                 if (container) container.scrollLeft += 100;
               }}
-              className="h-full px-2 bg-gradient-to-l from-body-50/90 to-transparent dark:from-body-900/90 flex items-center">
+              className="h-full px-2 bg-gradient-to-l from-body-50/90 to-transparent dark:from-body-900/90 flex items-center"
+            >
               <ChevronRight className="w-4 h-4 text-body-400" />
             </button>
           </div>

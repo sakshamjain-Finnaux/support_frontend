@@ -84,7 +84,8 @@ export default function CompanyInProgressIssues() {
                 />,
                 false,
               )
-            }>
+            }
+          >
             View
           </button>
         </ActionMenu>

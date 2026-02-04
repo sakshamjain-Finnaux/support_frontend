@@ -79,7 +79,8 @@ export default function MyResolvedIssues() {
                 />,
                 false,
               )
-            }>
+            }
+          >
             View
           </button>
         </ActionMenu>
@@ -103,7 +104,8 @@ export default function MyResolvedIssues() {
                 <CreateIssue networkRequest={networkRequest} />,
                 false,
               )
-            }>
+            }
+          >
             New Issue
             <PlusIcon />
           </Button>

@@ -19558,13 +19558,11 @@ class vI extends Ps {
     if (
       ((this.options = this.client.defaultQueryOptions(t)),
       hm(r, this.options) ||
-        this.client
-          .getQueryCache()
-          .notify({
-            type: "observerOptionsUpdated",
-            query: this.currentQuery,
-            observer: this,
-          }),
+        this.client.getQueryCache().notify({
+          type: "observerOptionsUpdated",
+          query: this.currentQuery,
+          observer: this,
+        }),
       typeof this.options.enabled < "u" &&
         typeof this.options.enabled != "boolean")
     )
@@ -19864,12 +19862,10 @@ class vI extends Ps {
           c(this.currentResult);
         }),
         t.cache &&
-          this.client
-            .getQueryCache()
-            .notify({
-              query: this.currentQuery,
-              type: "observerResultsUpdated",
-            }));
+          this.client.getQueryCache().notify({
+            query: this.currentQuery,
+            type: "observerResultsUpdated",
+          }));
     });
   }
 }
@@ -19918,13 +19914,11 @@ let yI = class extends Ps {
     const r = this.options;
     ((this.options = this.client.defaultMutationOptions(t)),
       hm(r, this.options) ||
-        this.client
-          .getMutationCache()
-          .notify({
-            type: "observerOptionsUpdated",
-            mutation: this.currentMutation,
-            observer: this,
-          }),
+        this.client.getMutationCache().notify({
+          type: "observerOptionsUpdated",
+          mutation: this.currentMutation,
+          observer: this,
+        }),
       (n = this.currentMutation) == null || n.setOptions(this.options));
   }
   onUnsubscribe() {

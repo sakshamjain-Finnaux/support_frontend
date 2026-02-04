@@ -88,7 +88,8 @@ export default function ClientsInProgressIssues() {
                 />,
                 false,
               )
-            }>
+            }
+          >
             View
           </button>
         </ActionMenu>

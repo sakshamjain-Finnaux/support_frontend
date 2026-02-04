@@ -55,7 +55,8 @@ export default function MyPendingTasks() {
                 : value && value.includes("reverted")
                   ? "bg-red-600 text-white"
                   : "bg-yellow-600 text-white"
-            }`}>
+            }`}
+          >
             {value || "Pending"}
           </span>
         ),
@@ -87,9 +88,8 @@ export default function MyPendingTasks() {
       row = { ...row };
       row["action"] = (
         <ActionMenu>
-          <Button
-            variant="dark"
-            className="h-6 px-2 text-xs"
+          <button
+            className="text-white"
             onClick={() =>
               showInOverlay(
                 <IssueTimeLineWithForm
@@ -97,9 +97,10 @@ export default function MyPendingTasks() {
                   issueId={row.issue_id}
                 />,
               )
-            }>
+            }
+          >
             View
-          </Button>
+          </button>
         </ActionMenu>
       );
       return row;
@@ -116,7 +117,8 @@ export default function MyPendingTasks() {
             size="sm"
             variant="dark"
             className="!gap-0"
-            onClick={query.refetch}>
+            onClick={query.refetch}
+          >
             Refresh
             <RefreshIcon className="inline ml-1 text-lg" />
           </Button>

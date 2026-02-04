@@ -82,7 +82,8 @@ export default function ClientsPendingIssues() {
                 />,
                 false,
               )
-            }>
+            }
+          >
             View
           </button>
         </ActionMenu>

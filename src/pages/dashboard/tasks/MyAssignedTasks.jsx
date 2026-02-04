@@ -55,7 +55,8 @@ export default function MyAssignedTasks() {
                 : value && value.includes("reverted")
                   ? "bg-red-600 text-white"
                   : "bg-yellow-600 text-white"
-            }`}>
+            }`}
+          >
             {value || "Pending"}
           </span>
         ),
@@ -97,7 +98,8 @@ export default function MyAssignedTasks() {
                   issueId={row.issue_id}
                 />,
               )
-            }>
+            }
+          >
             View
           </button>
         </ActionMenu>
@@ -118,7 +120,8 @@ export default function MyAssignedTasks() {
             variant="dark"
             size="sm"
             className="!gap-0"
-            onClick={query.refetch}>
+            onClick={query.refetch}
+          >
             Refresh
             <RefreshIcon className="inline ml-1 text-lg" />
           </Button>

@@ -86,7 +86,8 @@ export default function CompanyRevertedIssues() {
                 />,
                 false,
               )
-            }>
+            }
+          >
             View
           </button>
         </ActionMenu>

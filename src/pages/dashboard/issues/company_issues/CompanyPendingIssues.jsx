@@ -78,7 +78,8 @@ export default function CompanyPendingIssues() {
                 />,
                 false,
               )
-            }>
+            }
+          >
             View
           </button>
         </ActionMenu>

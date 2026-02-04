@@ -86,7 +86,8 @@ export default function ClientsResolvedIssues() {
                 />,
                 false,
               )
-            }>
+            }
+          >
             View
           </button>
         </ActionMenu>

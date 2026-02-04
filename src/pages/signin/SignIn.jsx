@@ -51,7 +51,8 @@ export default function SignIn() {
       style={{
         backgroundImage: `url(${background})`,
       }}
-      className="min-h-screen bg-cover bg-center bg-fixed flex flex-col items-center justify-center p-4">
+      className="min-h-screen bg-cover bg-center bg-fixed flex flex-col items-center justify-center p-4"
+    >
       {/* Dark mode overlay for background image */}
       <div className="absolute inset-0 bg-body-50 dark:bg-body-950"></div>
 
@@ -91,7 +92,8 @@ export default function SignIn() {
             <div className="space-y-2">
               <label
                 htmlFor="username"
-                className="text-sm font-medium text-body-700 dark:text-body-300 block">
+                className="text-sm font-medium text-body-700 dark:text-body-300 block"
+              >
                 Username
               </label>
               <div className="relative">
@@ -138,7 +140,8 @@ export default function SignIn() {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="text-sm font-medium text-body-700 dark:text-body-300 block">
+                  className="text-sm font-medium text-body-700 dark:text-body-300 block"
+                >
                   Password
                 </label>
                 {/* <button
@@ -180,7 +183,8 @@ export default function SignIn() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-body-400 hover:text-body-600 dark:text-body-500 dark:hover:text-body-400 transition-colors">
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-body-400 hover:text-body-600 dark:text-body-500 dark:hover:text-body-400 transition-colors"
+                >
                   {showPassword ? (
                     <EyeOff className="w-4 h-4" />
                   ) : (
@@ -205,7 +209,8 @@ export default function SignIn() {
               />
               <label
                 htmlFor="remember"
-                className="ml-2 text-sm text-body-600 dark:text-body-400 cursor-pointer select-none">
+                className="ml-2 text-sm text-body-600 dark:text-body-400 cursor-pointer select-none"
+              >
                 Remember me
               </label>
             </div>
@@ -215,7 +220,8 @@ export default function SignIn() {
               type="submit"
               disabled={submitting}
               className="w-full py-3 bg-primary-600 
-             dark:text-white font-medium rounded-lg transition-all duration-200 shadow-md disabled:opacity-70 disabled:cursor-not-allowed group">
+             dark:text-white font-medium rounded-lg transition-all duration-200 shadow-md disabled:opacity-70 disabled:cursor-not-allowed group"
+            >
               <div className="flex items-center justify-center gap-2">
                 {submitting ? (
                   <>
@@ -238,7 +244,8 @@ export default function SignIn() {
               Need an account?{" "}
               <button
                 type="button"
-                className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-medium transition-colors">
+                className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-medium transition-colors"
+              >
                 Contact administrator
               </button>
             </p>

@@ -76,7 +76,8 @@ export default function MyInProgressIssues() {
                   issueId={row.issue_id}
                 />,
               )
-            }>
+            }
+          >
             View
           </button>
         </ActionMenu>
@@ -100,7 +101,8 @@ export default function MyInProgressIssues() {
                 <CreateIssue networkRequest={networkRequest} />,
                 false,
               )
-            }>
+            }
+          >
             New Issue
             <PlusIcon />
           </Button>
