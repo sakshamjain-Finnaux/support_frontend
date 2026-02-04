@@ -58,30 +58,35 @@ export default function Sidebar() {
     () => (
       <>
         <aside
-          className={`bg-body-940 w-72 z-20 fixed overflow-auto h-[calc(100vh_-_0px)] flex gap-6 border-r border-body-800 items-center flex-col transition-transform duration-300 ${isSidebarOpen ? "translate-x-0" : "-translate-x-72"}`}>
+          className={`bg-body-940 w-72 z-20 fixed overflow-auto h-[calc(100vh_-_0px)] flex gap-6 border-r border-body-800 items-center flex-col transition-transform duration-300 ${isSidebarOpen ? "translate-x-0" : "-translate-x-72"}`}
+        >
           {/*  */}
           <div className="text-3xl flex items-center border-body-800 text-primary-500 font-semibold font-center border-b w-full px-4 min-h-[54px] tracking-wide justify-between">
             <span>Finnaux</span>
             <button
               onClick={setIsSidebarOpen.bind(null, false)}
-              className="text-xl text-body-300 xl:hidden hover:text-primary-600">
+              className="text-xl text-body-300 xl:hidden hover:text-primary-600"
+            >
               <SidebarCloseIcon className="" />
             </button>
           </div>
           <div className="px-4 pb-4 flex flex-col gap-6 items-center w-full h-full">
             <Accordion
               as="nav"
-              className="flex flex-col gap-3 text-body-400 font-medium text-base w-full items-center">
+              className="flex flex-col gap-3 text-body-400 font-medium text-base w-full items-center"
+            >
               {navlinks.map((navlink, index) => {
                 if (navlink.name === "Issues") {
                   return (
                     <AccordionItem key={navlink.name}>
                       {({ open }) => (
                         <div
-                          className={`p-2 w-full rounded-lg ${open ? "bg-body-800 bg-opacity-60" : ""}`}>
+                          className={`p-2 w-full rounded-lg ${open ? "bg-body-800 bg-opacity-60" : ""}`}
+                        >
                           <AccordionHeader
                             as="div"
-                            className="w-full hover:text-primary-300 duration-150 flex items-center rounded-lg gap-4 cursor-pointer">
+                            className="w-full hover:text-primary-300 duration-150 flex items-center rounded-lg gap-4 cursor-pointer"
+                          >
                             {navlink.icon}
                             {navlink.name}
                             <ArrowIcon
@@ -101,7 +106,8 @@ export default function Sidebar() {
                                       ? "bg-body-800 text-primary-400 "
                                       : "") +
                                     " hover:text-primary-300 block px-2 rounded-lg py-2"
-                                  }>
+                                  }
+                                >
                                   {/* {navlink.icon} */}
                                   Client Issues
                                 </NavLink>
@@ -114,7 +120,8 @@ export default function Sidebar() {
                                     ? "bg-body-800 text-primary-400 "
                                     : "") +
                                   " hover:text-primary-300 block px-2 rounded-lg py-2"
-                                }>
+                                }
+                              >
                                 {/* {navlink.icon} */}
                                 Company Issues
                               </NavLink>
@@ -126,7 +133,8 @@ export default function Sidebar() {
                                     ? "bg-body-800 text-primary-400 "
                                     : "") +
                                   " hover:text-primary-300 block px-2 rounded-lg py-2"
-                                }>
+                                }
+                              >
                                 {/* {navlink.icon} */}
                                 My Issues
                               </NavLink>
@@ -156,7 +164,8 @@ export default function Sidebar() {
                     className={({ isActive }) =>
                       (isActive ? "bg-body-800 text-primary-400 " : "") +
                       NavLinkClassname
-                    }>
+                    }
+                  >
                     {navlink.icon}
                     {navlink.name}
                   </NavLink>
@@ -180,10 +189,12 @@ export default function Sidebar() {
           leave="transition-opacity duration-150"
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
-          show={isSidebarOpen}>
+          show={isSidebarOpen}
+        >
           <div
             onClick={setIsSidebarOpen.bind(null, false)}
-            className="md:hidden w-screen h-screen fixed bg-black bg-opacity-80 z-10"></div>
+            className="md:hidden w-screen h-screen fixed bg-black bg-opacity-80 z-10"
+          ></div>
         </Transition>
       </>
     ),
