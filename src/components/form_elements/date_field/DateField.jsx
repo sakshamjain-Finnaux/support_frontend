@@ -17,24 +17,23 @@ export default function DateField({
       name={name}
       rules={rules}
       control={control}
-      render={({
-        field: { value, onChange, onBlur, ref },
-        fieldState: { error },
-      }) => {
+      render={({ field: { value, onChange, ref }, fieldState: { error } }) => {
         if (value) {
           value = utilities.convertMySqlDateToJSDate(value);
         }
         return (
           <div className="w-full relative">
-            <label className="block">
-              <div className="mb-1">{title}</div>
+            <label className="block  ">
+              <div className="mb-1 ">{title}</div>
               <DatePicker
                 {...(minDate ? { minDate } : {})}
                 {...(maxDate ? { maxDate } : {})}
-                format="dd/MM/yyyy"
+                format="dd/mm/yyyy"
                 inputRef={ref}
-                className={"w-full " + (error ? "react-date-picker_error" : "")}
-                calendarClassName={"bg-body-800 text-body-300 rounded-md"}
+                className={
+                  "w-full  " + (error ? "react-date-picker_error" : "")
+                }
+                calendarClassName="modern-calendar"
                 onChange={(val) => {
                   onChange(val && utilities.convertJsDateToMySqlDate(val));
                 }}
@@ -42,7 +41,7 @@ export default function DateField({
               />
             </label>
             {error && (
-              <span className="absolute -bottom-4 text-xs text-error">
+              <span className="absolute -bottom-4  text-xs text-error">
                 {error.message}
               </span>
             )}

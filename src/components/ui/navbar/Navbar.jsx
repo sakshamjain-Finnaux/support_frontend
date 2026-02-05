@@ -17,21 +17,19 @@ export default function Navbar() {
       <nav className="border-b border-body-800 h-[54px] bg-body-900 px-6 flex items-center justify-between">
         <button
           onClick={() => setIsSidebarOpen((state) => !state)}
-          className="text-xl hover:bg-body-800 rounded-lg p-2 active:text-primary-600"
-        >
+          className="text-xl hover:bg-body-800 rounded-lg p-2 active:text-primary-600">
           {isSidebarOpen ? <SidebarCloseIcon /> : <SidebarOpenIcon />}
         </button>
         <div className="flex gap-4 items-center">
-          <button
+          {/* <button
             onClick={() =>
               setTheme((theme) => (theme === "light" ? "dark" : "light"))
             }
-            className="text-lg items-center hover:bg-body-800 rounded-lg p-2 active:text-primary-600"
-          >
+            className="text-lg items-center hover:bg-body-800 rounded-lg p-2 active:text-primary-600">
             {theme === "light" ? <MoonIcon /> : <SunIcon />}
-          </button>
+          </button> */}
 
-          <Popover as="div" className="relative inline-block text-left">
+          {/* <Popover as="div" className="relative inline-block text-left">
             {({ open }) => (
               <>
                 <Popover.Button
@@ -57,15 +55,14 @@ export default function Navbar() {
                 </Transition>
               </>
             )}
-          </Popover>
+          </Popover> */}
 
           <Menu as="div" className="relative inline-block text-left">
             {({ open }) => (
               <CustomFloat>
                 <Menu.Button
                   title={user.first_name + " " + user.last_name}
-                  className="flex items-center justify-center capitalize w-7 h-7 text-sm rounded-full bg-primary-700 font-medium select-none hover:brightness-75 duration-150 transition-filter"
-                >
+                  className="flex items-center justify-center capitalize w-7 h-7 text-sm rounded-full bg-primary-700 font-medium select-none hover:brightness-75 duration-150 transition-filter">
                   {user.first_name[0]}
                 </Menu.Button>
                 <Transition
@@ -75,8 +72,7 @@ export default function Navbar() {
                   enterTo="transform opacity-100 scale-100"
                   leave="transition ease-in duration-75"
                   leaveFrom="transform opacity-100 scale-100"
-                  leaveTo="transform opacity-0 scale-95"
-                >
+                  leaveTo="transform opacity-0 scale-95">
                   <Button variant="red" onClick={signout}>
                     <Menu.Items className="w-32 origin-top-right divide-y divide-body-700 py-1 z-50 text-xs ">
                       Signout

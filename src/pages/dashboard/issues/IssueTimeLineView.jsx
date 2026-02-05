@@ -123,7 +123,7 @@ function IssueView({ formData }) {
         <div>
           <div className="mb-1">Screen Proof</div>
           <div className="flex flex-col gap-4">
-            {formData["media"].map((imageLink, index) => (
+            {formData["media"].map((imageLink) => (
               <a
                 className="flex justify-between py-2 px-3 bg-body-800 items-center rounded-lg hover:underline underline-offset-4"
                 key={imageLink}

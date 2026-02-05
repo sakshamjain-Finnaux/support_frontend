@@ -173,7 +173,7 @@ export default function IssueForm({ submitMutation, formData, formType }) {
                 className="
                   h-14 bg-body-950 border-body-800 text-text
                   file:mr-3 file:h-9 file:rounded-md file:border-0
-                  file:bg-body-800 file:px-4 file:text-xs file:font-medium file:text-body-100
+                  file:bg-body-600 file:px-4 file:text-xs file:font-medium file:text-body-100
                   hover:file:bg-body-700
                 "
                 {...register("media")}

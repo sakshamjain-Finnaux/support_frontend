@@ -29,8 +29,7 @@ export default function Overlay({
           className="relative z-50 h-full"
           onClose={() => {
             closeOnOutSideClick && hideOverlay();
-          }}
-        >
+          }}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -38,8 +37,7 @@ export default function Overlay({
             enterTo="opacity-100"
             leave="ease-in duration-200"
             leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
+            leaveTo="opacity-0">
             <div className="fixed inset-0 bg-black bg-opacity-60" />
           </Transition.Child>
 
@@ -49,8 +47,7 @@ export default function Overlay({
             {!closeOnOutSideClick && (
               <button
                 onClick={hideOverlay}
-                className="p-1 bg-body-800 text-body-300 text-2xl rounded-full fixed top-3 right-5 hover:brightness-75 duration-150 ring-red-700 ring-offset-1 ring-offset-transparent focus:ring-1 outline-none z-50"
-              >
+                className="p-1 bg-body-700 text-red-600 text-2xl rounded-full fixed top-3 right-5 hover:text-white hover:bg-red-600 duration-150 ring-red-700 ring-offset-1 ring-offset-transparent focus:ring-1 outline-none z-50">
                 <CloseIcon />
               </button>
             )}
@@ -63,8 +60,7 @@ export default function Overlay({
                   hideOverlay();
                 }
               }}
-              className="flex min-h-full items-center justify-center p-4 text-center"
-            >
+              className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -72,8 +68,7 @@ export default function Overlay({
                 enterTo="opacity-100 scale-100"
                 leave="ease-in duration-200"
                 leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
-              >
+                leaveTo="opacity-0 scale-95">
                 <Dialog.Panel as="div" className="text-left max-w-full">
                   {element}
                 </Dialog.Panel>

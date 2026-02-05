@@ -77,6 +77,7 @@ export default function MyPendingIssues() {
                   networkRequest={networkRequest}
                   issueId={row.issue_id}
                 />,
+
                 false,
               )
             }>

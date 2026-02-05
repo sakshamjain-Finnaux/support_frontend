@@ -19,29 +19,33 @@
 }
 
 .react-date-picker__wrapper {
-  border-radius: 8px;
-  padding: 6px;
+  border-radius: 6px;
+  padding: 8px 12px;
   display: flex;
   flex-grow: 1;
   flex-shrink: 0;
-  border: 2px solid theme("colors.body.700");
-  background-color: theme("colors.body.940");
+  border: 1px solid rgb(var(--border, var(--body-700)));
+  background: rgb(var(--background, var(--body-900)));
+  transition: all 0.15s ease;
 }
 
 .react-date-picker__wrapper:hover {
-  border-color: theme("colors.body.800");
+  border-color: rgb(var(--input, var(--body-600)));
+  transform: translateY(0);
 }
 
 .react-date-picker__wrapper:focus {
-  border: 2px solid #14b8a6;
+  border: 2px solid rgb(var(--ring, var(--primary-600)));
+  box-shadow: 0 0 0 2px rgb(var(--ring, var(--primary-600)));
 }
 
 .react-date-picker_error > .react-date-picker__wrapper {
-  border-color: theme("colors.red.700");
+  border-color: rgb(var(--destructive, 220, 38, 38));
+  background: rgba(var(--destructive, 220, 38, 38), 0.05);
 }
 
 .react-date-picker_error > .react-date-picker__wrapper:hover {
-  border-color: theme("colors.red.800");
+  border-color: rgb(var(--destructive, 220, 38, 38));
 }
 
 .react-date-picker__inputGroup {
@@ -68,12 +72,13 @@
   padding: 0 1px;
   border: 0;
   background: none;
-  color: currentColor;
+  color: rgb(var(--foreground, var(--body-200)));
   font: inherit;
   box-sizing: content-box;
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
   appearance: textfield;
+  font-weight: 400;
 }
 
 .react-date-picker__inputGroup__input::-webkit-outer-spin-button,
@@ -85,7 +90,8 @@
 }
 
 .react-date-picker__inputGroup__input:invalid {
-  background: rgba(255, 0, 0, 0.131);
+  background: rgba(var(--destructive, 220, 38, 38), 0.1);
+  color: rgb(var(--destructive, 220, 38, 38));
 }
 
 .react-date-picker__inputGroup__input--hasLeadingZero {
@@ -97,20 +103,24 @@
   border: 0;
   background: transparent;
   padding: 4px 6px;
+  border-radius: 4px;
+  transition: all 0.15s ease;
 }
 
 .react-date-picker__button__icon {
-  stroke: theme("colors.body.500");
+  stroke: rgb(var(--muted-foreground, var(--body-500)));
   cursor: pointer;
+  transition: all 0.15s ease;
 }
 
 .react-date-picker__button:enabled:hover .react-date-picker__button__icon,
 .react-date-picker__button:enabled:focus .react-date-picker__button__icon {
-  stroke: #0078d7;
+  stroke: rgb(var(--foreground, var(--body-200)));
 }
 
 .react-date-picker__button:disabled .react-date-picker__button__icon {
-  stroke: #6d6d6d;
+  stroke: rgb(var(--muted-foreground, var(--body-500)));
+  opacity: 0.5;
 }
 
 .react-date-picker__button svg {
@@ -118,9 +128,10 @@
 }
 
 .react-date-picker__calendar {
-  width: 350px;
+  width: 300px;
   max-width: 100vw;
-  z-index: 1;
+  z-index: 50;
+  margin-top: 4px;
 }
 
 .react-date-picker__calendar--closed {
@@ -128,5 +139,8 @@
 }
 
 .react-date-picker__calendar .react-calendar {
-  border-width: thin;
+  border-width: 0;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.06);
 }
