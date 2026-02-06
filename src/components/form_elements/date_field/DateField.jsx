@@ -28,10 +28,10 @@ export default function DateField({
               <DatePicker
                 {...(minDate ? { minDate } : {})}
                 {...(maxDate ? { maxDate } : {})}
-                format="dd/mm/yyyy"
+                format="dd/MM/yyyy"
                 inputRef={ref}
                 className={
-                  "w-full  " + (error ? "react-date-picker_error" : "")
+                  "w-full" + (error ? "react-date-picker_error" : "")
                 }
                 calendarClassName="modern-calendar"
                 onChange={(val) => {

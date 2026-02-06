@@ -1,3 +1,5 @@
+import { forwardRef } from "react";
+
 export function UncontrolledInputField({
   placeholder,
   title,
@@ -25,13 +27,17 @@ export function UncontrolledInputField({
   );
 }
 
-export function UncontrolledCheckBox({ name, className, ...rest }) {
-  return (
-    <input
-      className={`relative float-left h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-body-600 before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:content-[''] checked:border-primary-700 checked:bg-primary-700 checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] cursor-pointer ${className}`}
-      {...rest}
-      type="checkbox"
-      name=""
-    />
-  );
-}
+export const UncontrolledCheckBox = forwardRef(
+  ({ name, className, ...rest }, ref) => {
+    return (
+      <input
+        ref={ref}
+        className={`relative float-left h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-body-600 before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:content-[''] checked:border-primary-700 checked:bg-primary-700 checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] cursor-pointer ${className}`}
+        {...rest}
+        type="checkbox"
+        name={name}
+      />
+    );
+  }
+);
+

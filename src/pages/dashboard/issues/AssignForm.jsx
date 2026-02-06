@@ -397,9 +397,9 @@ export default function AssignForm({ networkRequest, issueId, show }) {
         <Button
           type="submit"
           variant="blue"
-          disabled={assignMutation.isLoading || assignMutation.isSuccess}
+          disabled={assignMutation.isPending || assignMutation.isSuccess}
           className="h-10 w-full shadow-lg shadow-blue-900/20 disabled:animate-pulse">
-          {assignMutation.isLoading ? "Assigning..." : "Assign Issue"}
+          {assignMutation.isPending ? "Assigning..." : "Assign Issue"}
         </Button>
       </div>
     </form>

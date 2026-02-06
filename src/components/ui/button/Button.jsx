@@ -13,7 +13,7 @@ const buttonVariants = cva(
         primary:
           "bg-primary-600 text-white hover:bg-primary-700 shadow-lg hover:shadow-xl active:scale-95 dark:bg-primary-500 dark:hover:bg-primary-600",
         blue: "bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl active:scale-95",
-        red: "bg-red-600 text-white hover:bg-red-600/90 shadow-lg hover:shadow-xl active:scale-95",
+        red: "bg-red-800/90 text-white hover:bg-red-600/90 shadow-lg hover:shadow-xl active:scale-95",
         destructive:
           "bg-red-600 text-white hover:bg-red-700 shadow-lg hover:shadow-xl active:scale-95",
         yellow:

@@ -4,6 +4,7 @@ import useUI from "./UIContext";
 import authReqs from "../network/authReqs";
 import PERMISSIONS from "../permissions";
 import { useQueryClient } from "@tanstack/react-query";
+import { getCookie } from "../network/networkUtils";
 
 const AuthContext = createContext();
 export function AuthProvider({ children }) {
@@ -43,6 +44,11 @@ export function AuthProvider({ children }) {
   };
 
   function hasPermission(permission) {
+    if (permission === PERMISSIONS.can_assign) {
+      const cookieVal = getCookie("can_assign");
+      if (cookieVal === "true") return true;
+      if (cookieVal === "false") return false;
+    }
     return user?.permissions?.includes(permission);
   }
 

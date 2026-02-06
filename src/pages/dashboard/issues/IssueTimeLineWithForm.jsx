@@ -18,15 +18,25 @@ export default function IssueTimeLineWithForm({ networkRequest, issueId }) {
     staleTime: 0,
   });
 
+  const issueQuery = useQuery({
+    queryKey: ["issues", String(issueId)],
+    queryFn: async () => {
+      const result = await networkRequest("get_issue", issueId);
+      if (!result.success) throw result;
+      return result.data;
+    },
+    staleTime: 0,
+  });
+
   async function getFields() {
     const result = await networkRequest("get_assign_fields", issueId);
     if (!result.success) throw result;
     return result.data;
   }
 
-  if (assignFieldsQuery.isLoading) return <Spinner />;
+  if (assignFieldsQuery.isLoading || issueQuery.isLoading) return <Spinner />;
 
-  if (assignFieldsQuery.isError) {
+  if (assignFieldsQuery.isError || issueQuery.isError) {
     return (
       <div>
         <p className="text-body-400 text-center  text-xl">There was an error</p>
@@ -43,14 +53,15 @@ export default function IssueTimeLineWithForm({ networkRequest, issueId }) {
           issueId={issueId}
           networkRequest={networkRequest}
           fields={assignFieldsQuery.data}
+          transactions={issueQuery.data?.transactions || []}
         />
       )}
     </IssueTimeLineView>
   );
 }
 
-function RemarkForm({ networkRequest, issueId, fields }) {
-  const { hasPermission } = useAuth();
+function RemarkForm({ networkRequest, issueId, fields, transactions }) {
+  const { hasPermission, user } = useAuth();
   const queryClient = useQueryClient();
   const {
     register,
@@ -61,6 +72,23 @@ function RemarkForm({ networkRequest, issueId, fields }) {
   } = useForm();
 
   const watchStatus = watch("status");
+
+  // Check if current user has already completed their part
+  const hasUserCompleted = useMemo(() => {
+    if (!user || !transactions) return false;
+
+    // Find the assignment transaction for this user
+    const userAssignment = transactions.find(
+      (t) =>
+        t.type === "Assigned" &&
+        t.assignees &&
+        t.assignees.some(
+          (a) => a.emp_id === user.emp_id && a.status === "completed",
+        ),
+    );
+
+    return !!userAssignment;
+  }, [user, transactions]);
 
   const statusOptions = useMemo(() => {
     const revert_options = [
@@ -95,8 +123,15 @@ function RemarkForm({ networkRequest, issueId, fields }) {
       options = options.filter((option) => option.value !== "assign");
     }
 
+    // If user has already completed, remove complete/revert options
+    if (hasUserCompleted) {
+      options = options.filter(
+        (option) => option.value !== "complete" && option.value !== "revert",
+      );
+    }
+
     return options;
-  }, [fields]);
+  }, [fields, hasUserCompleted, hasPermission]);
 
   const { closeOverlay, toast } = useUI();
 
@@ -137,68 +172,79 @@ function RemarkForm({ networkRequest, issueId, fields }) {
 
   return (
     <>
-      <form
-        onSubmit={
-          watchStatus === "assign" ? null : handleSubmit(revertMutation.mutate)
-        }
-        className="w-full flex flex-col gap-6">
-        <SelectField
-          defaultValue={fields.resolve ? "resolve" : "complete"}
-          control={control}
-          name={"status"}
-          title={"Status"}
-          placeholder="Status"
-          rules={{
-            required: "Select status!",
-          }}
-          options={statusOptions}
-        />
+      {hasUserCompleted ? (
+        <div className="w-full p-4 bg-body-940 rounded-lg text-center">
+          <p className="text-body-400 text-sm">
+            You have already completed your part of this task.
+          </p>
+        </div>
+      ) : (
+        <form
+          onSubmit={
+            watchStatus === "assign"
+              ? null
+              : handleSubmit(revertMutation.mutate)
+          }
+          className="w-full flex flex-col gap-6">
+          <SelectField
+            defaultValue={fields.resolve ? "resolve" : "complete"}
+            control={control}
+            name={"status"}
+            title={"Status"}
+            placeholder="Status"
+            rules={{
+              required: "Select status!",
+            }}
+            options={statusOptions}
+          />
 
-        {watchStatus !== "assign" && (
-          <>
-            <TextAreaField
-              errors={errors}
-              name={"msg"}
-              placeholder={"Remarks..."}
-              register={register}
-              title={"Remarks*"}
-              validationSchema={{
-                required: "Remark is required!",
-                maxLength: {
-                  value: 251,
-                  message: "Max Length is 251!",
-                },
-              }}
-            />
+          {watchStatus !== "assign" && (
+            <>
+              <TextAreaField
+                errors={errors}
+                name={"msg"}
+                placeholder={"Remarks..."}
+                register={register}
+                title={"Remarks*"}
+                validationSchema={{
+                  required: "Remark is required!",
+                  maxLength: {
+                    value: 251,
+                    message: "Max Length is 251!",
+                  },
+                }}
+              />
 
-            <div className="flex gap-4 ml-auto">
-              {fields.resolve ? (
-                <Button
-                  disabled={
-                    revertMutation.isLoading || revertMutation.isSuccess
-                  }
-                  type="submit"
-                  className="disabled:animate-pulse"
-                  variant="dark">
-                  Resolve
-                </Button>
-              ) : (
-                <>
+              <div className="flex gap-4 ml-auto">
+                {fields.resolve ? (
                   <Button
                     disabled={
                       revertMutation.isLoading || revertMutation.isSuccess
                     }
-                    variant="blue"
                     type="submit"
-                    className="disabled:animate-pulse">
-                    Send
+                    className="disabled:animate-pulse"
+                    variant="dark">
+                    Resolve
                   </Button>
-                </>
-              )}
-            </div>
-          </>
-        )}
-      </form>
+                ) : (
+                  <>
+                    <Button
+                      disabled={
+                        revertMutation.isLoading || revertMutation.isSuccess
+                      }
+                      variant="blue"
+                      type="submit"
+                      className="disabled:animate-pulse">
+                      Send
+                    </Button>
+                  </>
+                )}
+              </div>
+            </>
+          )}
+        </form>
+      )}
+
       {watchStatus === "assign" && (
         <AssignForm
           networkRequest={networkRequest}

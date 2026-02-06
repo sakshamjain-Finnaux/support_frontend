@@ -32,7 +32,7 @@ export default function EmployeeForm({
         },
       })
     : useForm();
-
+    
   return (
     <form
       onSubmit={handleSubmit(submitMutation.mutate)}
@@ -450,6 +450,16 @@ export default function EmployeeForm({
               validate: (value) => !!value.trim() || "Designation is required!",
             }}
           />
+        </div>
+
+        <div className="w-full ms:w-[45%] md:w-[30%] flex items-center mt-6">
+          <label className="flex items-center gap-3 cursor-pointer">
+            <UncontrolledCheckBox
+              {...register("can_assign")}
+              id={"can_assign"}
+            />
+            <span className="text-body-100 select-none">Can Assign Issues</span>
+          </label>
         </div>
 
         {type === "edit" || (
