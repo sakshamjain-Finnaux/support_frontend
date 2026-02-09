@@ -5,6 +5,7 @@ import { useData } from "../../../contexts/DataContext";
 import { RefreshIcon } from "../../../assets/Icons/Icons";
 import { useQuery } from "@tanstack/react-query";
 import Button from "../../../components/ui/button/Button";
+import { StatusBadge } from "../../../components/ui/StatusComponents";
 import ActionMenu from "../../../components/action_menu/ActionMenu";
 import IssueTimeLineWithForm from "../issues/IssueTimeLineWithForm";
 import usePageReducer from "../../../reducers/PageReducer";
@@ -47,19 +48,17 @@ export default function MyRevertedTasks() {
       {
         Header: "Progress",
         accessor: "progress",
-        Cell: ({ value }) => (
-          <span
-            className={`text-xs px-2 py-1 rounded ${
-              value && value.includes("reverted")
-                ? "bg-red-600 text-white"
-                : value && value.includes("completed")
-                  ? "bg-green-600 text-white"
-                  : "bg-yellow-600 text-white"
-            }`}
-          >
-            {value || "Pending"}
-          </span>
-        ),
+        Cell: ({ value }) => {
+          const status =
+            value && value.includes("reverted")
+              ? "reverted"
+              : value && value.includes("completed")
+                ? "completed"
+                : "pending";
+          return (
+            <StatusBadge status={status}>{value || "Pending"}</StatusBadge>
+          );
+        },
       },
       {
         Header: "Action",

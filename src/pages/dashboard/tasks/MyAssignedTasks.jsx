@@ -5,6 +5,7 @@ import { useData } from "../../../contexts/DataContext";
 import { RefreshIcon } from "../../../assets/Icons/Icons";
 import { useQuery } from "@tanstack/react-query";
 import Button from "../../../components/ui/button/Button";
+import { StatusBadge } from "../../../components/ui/StatusComponents";
 import ActionMenu from "../../../components/action_menu/ActionMenu";
 import usePageReducer from "../../../reducers/PageReducer";
 import IssueTimeLineView from "../issues/IssueTimeLineView";
@@ -45,21 +46,31 @@ export default function MyAssignedTasks() {
         accessor: "created_on",
       },
       {
+        Header: "Target Date",
+        accessor: "target_date",
+        Cell: ({ value }) => {
+          const isNA = value === "N/A";
+          return (
+            <span className={isNA ? "text-gray-400" : "font-medium"}>
+              {isNA ? "N/A" : new Date(value).toLocaleDateString()}
+            </span>
+          );
+        },
+      },
+      {
         Header: "Progress",
         accessor: "progress",
-        Cell: ({ value }) => (
-          <span
-            className={`text-xs px-2 py-1 rounded ${
-              value && value.includes("completed")
-                ? "bg-green-600 text-white"
-                : value && value.includes("reverted")
-                  ? "bg-red-600 text-white"
-                  : "bg-yellow-600 text-white"
-            }`}
-          >
-            {value || "Pending"}
-          </span>
-        ),
+        Cell: ({ value }) => {
+          const status =
+            value && value.includes("completed")
+              ? "completed"
+              : value && value.includes("reverted")
+                ? "reverted"
+                : "pending";
+          return (
+            <StatusBadge status={status}>{value || "Pending"}</StatusBadge>
+          );
+        },
       },
       {
         Header: "Action",
@@ -104,11 +115,10 @@ export default function MyAssignedTasks() {
           </button>
         </ActionMenu>
       );
+
       if (cur_date > new Date(row.target_date)) row["variant"] = "red";
       return row;
     });
-    // console.log(data);
-
     return data;
   }, [query.data]);
 

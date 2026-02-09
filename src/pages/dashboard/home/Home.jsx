@@ -1,6 +1,5 @@
-import React from "react";
-import useAuth from "../../../contexts/AuthContext";
 import { Calendar } from "lucide-react";
+import useAuth from "../../../contexts/AuthContext";
 function Home() {
   const { user } = useAuth();
   const currentTime = new Date();
@@ -35,7 +34,6 @@ function Home() {
         Welcome back to your support dashboard. Here's what's happening with
         your team today.
       </p>
-
       <div className="justify-center text-sm text-muted-foreground flex h-full items-end pt-4">
         <p>
           Need help? Check out our{" "}
